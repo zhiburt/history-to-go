@@ -26,12 +26,15 @@ let geojson = L.geoJson(null, {
 
 function showHistory(history) {
     currentHistory = history;
+    console.log("1111", currentHistory)
     
-    let layer = currentHistory[0].layer;
+    let layer = currentHistory[0];
     showHistoryLayer(layer);
 }
 
 function showHistoryLayer(layer) {
+    console.log("layer", layer)
+
     geojson.clearLayers();
     let l = geojson.addData(layer);
     map.fitBounds(l.getBounds(), { "animate": false });
@@ -48,8 +51,10 @@ function onEachFeature(feature, layer) {
 
     if (props["layer-data"] !== undefined) {
         let nextLayerId = props["layer-data"].internal;
-        let nextLayer = currentHistory.find((e) => e.id === nextLayerId);
-        let newLayer = nextLayer.layer;
-        layer.on('click', () => showHistoryLayer(newLayer));
+        let nextLayer = currentHistory.find((_, i) => i === nextLayerId);
+
+        console.log("nextLayer", nextLayer)
+
+        layer.on('click', () => showHistoryLayer(nextLayer));
     }
 }
