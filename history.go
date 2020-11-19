@@ -8,5 +8,13 @@ type History struct {
 	Description string            `json:"description"`
 	Date        string            `json:"date"`
 	Image       string            `json:"image"`
+	Artifacts   []Artifact        `json:"artifacts"`
 	Layers      []json.RawMessage `json:"layers"`
+}
+
+// Artifact
+type Artifact struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Image       string `json:"image"`
 }

@@ -31,10 +31,130 @@ $.get("/history", function (data) {
         console.log("histories", histories);
         console.log("history", history);
 
-        showHistory(history.layers);
+        showArtifacts(history.artifacts);
+
+        showHistory(history);
         showInfo(history);
     });
 });
+
+function showArtifacts(artifacts) {
+    $("#sidebarMenu").append(`
+
+    <script>
+        $('#blogCarousel').carousel({
+            interval: 5000
+        });
+    </script>
+
+    <div class="row blog">
+    <div class="col-md-12">
+        <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#blogCarousel" data-slide-to="1"></li>
+            </ol>
+
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                    </div>
+                    <!--.row-->
+                </div>
+                <!--.item-->
+
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                            </a>
+                        </div>
+                    </div>
+                    <!--.row-->
+                </div>
+                <!--.item-->
+
+            </div>
+            <!--.carousel-inner-->
+        </div>
+        <!--.Carousel-->
+
+    </div>
+</div>
+    `);
+
+
+
+    
+    // artifacts.forEach((artifact) => {
+    //     $("#sidebarMenu").append(`
+    //    <div class="carousel-item active">
+    //         <div class="row">
+    //             <div class="col-md-3">
+    //                 <a href="#">
+    //                     <img class="carousel-img" src="https://static.thenounproject.com/png/300849-200.png" alt="Image" style="max-width:100%;">
+    //                 </a>
+    //             </div>
+    //             <div class="col-md-3">
+    //                 <a href="#">
+    //                     <img src="` + artifact.image + `" alt="Image" style="max-width:100%;">
+    //                 </a>
+    //             </div>
+    //             <div class="col-md-3">
+    //                 <a href="#">
+    //                     <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+    //                 </a>
+    //             </div>
+    //                 <div class="col-md-3">
+    //                     <a href="#">
+    //                         <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+    //                     </a>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>
+    //     `);
+    // });
+}
 
 function showInfo(history) {
     $("#sidebarMenu").empty()
@@ -54,8 +174,8 @@ function showInfo(history) {
                 <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
             </blockquote>
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Yanks_advance_into_a_Belgian_town.jpg" class="rounded img-fluid mx-auto d-block" alt="...">
-        </div>
-    `);
+        </div>`
+    );
 }
 
 // $(".history-list-obj").click(function(e){
